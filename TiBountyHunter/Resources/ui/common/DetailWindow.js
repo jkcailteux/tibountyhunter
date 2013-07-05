@@ -30,7 +30,21 @@ var DetailWindow = function(/*Object*/_bounty, /*Tab object reference*/containin
 		captureButton.addEventListener('click', function(){
 			var db =require('/lib/db');
 			db.bust(_bounty.id);
-			win.close();
+			var net =require('/lib/network');
+			net.bustFugitive(Ti.Platform.macaddress, function(_data){
+				Ti.UI.createAlertDialog({
+					message:_data.message
+				}).show();
+				
+				if(Ti.Platform.osname == 'android'){
+					setTimeout(function(){
+						win.close();
+					}, 2000);
+				}else {
+					win.close();
+				}
+				
+			})
 		});
 		win.add(captureButton);
 	}

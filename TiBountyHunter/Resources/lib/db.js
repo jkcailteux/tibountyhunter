@@ -49,4 +49,14 @@ exports.bust = function(_id){
 	Ti.App.fireEvent("databaseUpdated");
 };
 
+if(!Ti.App.Properties.hasProperty('seeded')){
+	var net = require('lib/network');
+	net.getFugitives(function(data){
+		for(var i =0;i<data.length;i++){
+			add(data[i].name);
+		}
+		Ti.App.Properties.setString('seeded','yuppers');
+	});
+}
+
 
