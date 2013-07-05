@@ -34,6 +34,17 @@ function ApplicationWindow(/*Boolean*/ _captured){
 			self.containingTab.open(new AddWindow);
 		});
 		self.setRightNavButton(b);
+	}else if (Ti.Platform.osname === 'android'){
+		var b = Titanium.UI.createButton({
+			title:'add',
+			top : 10,
+			height : Ti.UI.SIZE,
+			width : 200
+		});
+		b.addEventListener('click', function(){
+			self.containingTab.open(new AddWindow);
+		});
+		self.add(b);
 	}
 	
 	return self;
