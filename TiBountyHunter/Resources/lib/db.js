@@ -1,5 +1,5 @@
 var db = Ti.Database.open('TiBountyHunter');
-db.execute('CREATE TABLE IF NOT EXISTS fugitives(id INTEGER PRIMARY KEY, name TEXT, captured INTEGER, url TEXT);');
+db.execute('CREATE TABLE IF NOT EXISTS fugitives(id INTEGER PRIMARY KEY, name TEXT, captured INTEGER, url TEXT, capturedLat REAL, capturedLong REAL);');
 db.close();
 
 exports.list=function(_captured){
@@ -14,7 +14,9 @@ exports.list=function(_captured){
 			color:'#fff',
 			name: result.fieldByName('name'),
 			captured: (Number(result.fieldByName('captured')) ===1),
-			url: result.fieldByName('url')
+			url: result.fieldByName('url'),
+			capturedLat: result.fieldByName('capturedLat'),
+			capturedLong: result.fieldByName('capturedLong')
 		});
 		result.next();
 	}
@@ -42,9 +44,9 @@ exports.del = function(_id){
 	Ti.App.fireEvent("databaseUpdated");
 };
 
-exports.bust = function(_id){
+exports.bust = function(_id,_lat,_long){
 	var db = Ti.Database.open('TiBountyHunter');
-	db.execute("UPDATE fugitives SET captured = 1 WHERE id = ?", _id);
+	db.execute("UPDATE fugitives SET captured = 1, capturedLat = ?, capturedLong = ? WHERE id = ?",  _lat,_long, _id);
 	db.close();
 	
 	Ti.App.fireEvent("databaseUpdated");
