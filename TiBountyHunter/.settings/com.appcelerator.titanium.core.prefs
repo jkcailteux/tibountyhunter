@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+provisioning_profiles/development/D8FBFAB8-9744-4C8D-A1F4-0AEFA785A3A0/appid=pushSkeleton.uhlig.com
+provisioning_profiles/development/D8FBFAB8-9744-4C8D-A1F4-0AEFA785A3A0/name=Uhlig Push Skeleton
+provisioning_profiles/development/D8FBFAB8-9744-4C8D-A1F4-0AEFA785A3A0/uuid=D8FBFAB8-9744-4C8D-A1F4-0AEFA785A3A0
+provisioning_profiles/development/E39CE832-463A-4B18-928B-0C80D688D857/appid=com.uhlig.push
+provisioning_profiles/development/E39CE832-463A-4B18-928B-0C80D688D857/name=Uhlig Push
+provisioning_profiles/development/E39CE832-463A-4B18-928B-0C80D688D857/uuid=E39CE832-463A-4B18-928B-0C80D688D857
+provisioning_profiles/distribution/21998B94-28DA-4943-92C6-94CC36B420FD/appid=com.uhlig.push
+provisioning_profiles/distribution/21998B94-28DA-4943-92C6-94CC36B420FD/name=illustratusAppstoreProfile
+provisioning_profiles/distribution/21998B94-28DA-4943-92C6-94CC36B420FD/uuid=21998B94-28DA-4943-92C6-94CC36B420FD
